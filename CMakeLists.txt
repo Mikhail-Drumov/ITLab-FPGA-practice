@@ -11,17 +11,10 @@ if (NOT CMAKE_BUILD_TYPE)
 endif()
 
 find_package(verilator REQUIRED)
+find_package(GTest REQUIRED)
 
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG        v1.18.0
-)
-FetchContent_MakeAvailable(googletest)
-
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-set(BENCHMARK_ENABLE_TESTING OFF)
 enable_testing()
 
 add_subdirectory(tb)
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
