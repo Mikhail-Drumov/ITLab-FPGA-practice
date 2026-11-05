@@ -1,4 +1,4 @@
-module hex7seg decoder (
+module hex7seg_decoder (
 	input  logic [3:0] dec,		// Десятичная цифра (0-9)
 	output logic [6:0] seg
 );

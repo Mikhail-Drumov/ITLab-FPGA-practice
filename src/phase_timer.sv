@@ -9,13 +9,13 @@ module phase_timer #(
 );
     logic tick;
     logic [3:0] timer = SECONDS;
-    clk_divider #(DIV_LIMIT = DIV_LIMIT_1S) div(
+    clk_divider #(.DIV_LIMIT(DIV_LIMIT_1S)) div(
         .clk(clk),
         .rst_n(rst_n),
         .tick(tick)
     );
     
-    always_ff @(posedge clk or negedge rst) begin
+    always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n)
             timer <= SECONDS;
         else if (timer == 0)
