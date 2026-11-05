@@ -2,9 +2,9 @@ name: SystemVerilog CMake CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches-ignore: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    branches-ignore: [ "main" ]
 
 jobs:
   simulate:
